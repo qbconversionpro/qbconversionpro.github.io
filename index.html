@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Conversion Pro | QuickBooks File Conversion Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #fff;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        .hero {
+            padding: 8rem 0 5rem;
+            text-align: center;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+        
+        .services {
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: var(--secondary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .process {
+            background: var(--light);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        
+        .faq {
+            background: var(--light);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        .contact {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-exchange-alt"></i>
+                    QB Conversion Pro
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Professional QuickBooks File Conversion</h1>
+            <p>Convert your QuickBooks files between different formats with our expert service. Fast, reliable, and secure.</p>
+            <a href="#contact" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We specialize in converting various QuickBooks file formats</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>QBW Conversion</h3>
+                        <p>Convert your QuickBooks Company files (QBW) to other formats or upgrade to newer versions.</p>
+                        <div class="price">$50 per file</div>
+                        <a href="#contact" class="btn">Request Conversion</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>QBA Conversion</h3>
+                        <p>Convert QuickBooks Accountant files (QBA) to other formats including Enterprise solutions.</p>
+                        <div class="price">$50 per file</div>
+                        <a href="#contact" class="btn">Request Conversion</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-archive"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>QBB Conversion</h3>
+                        <p>Convert your QuickBooks Backup files (QBB) to working company files or other formats.</p>
+                        <div class="price">$50 per file</div>
+                        <a href="#contact" class="btn">Request Conversion</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>QBO Conversion</h3>
+                        <p>Convert QuickBooks Online files (QBO) to desktop versions or other required formats.</p>
+                        <div class="price">$50 per file</div>
+                        <a href="#contact" class="btn">Request Conversion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p>Simple and secure file conversion in just a few steps</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submit Your File</h3>
+                    <p>Contact us with details about your conversion needs and send us your file securely.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Conversion Process</h3>
+                    <p>We'll convert your file to the desired format using specialized tools and expertise.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Quality Check</h3>
+                    <p>We thoroughly test the converted file to ensure data integrity and functionality.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery</h3>
+                    <p>Receive your converted file and make the payment—quick and hassle-free!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about our conversion services</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I needed to convert my QuickBooks Accountant file to Enterprise version for a client. The service was fast and flawless. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>John Davis</h4>
+                            <p>CPA, Financial Solutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Our company switched from QuickBooks Online to Desktop version. The conversion was perfect and all our historical data was preserved."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Office Manager, TechStart Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I had an old backup file that needed conversion. The team worked miracles with my corrupted file and saved me months of work!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Robert Johnson</h4>
+                            <p>Small Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our QuickBooks conversion services</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What QuickBooks file formats can you convert? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We can convert between all major QuickBooks file formats including QBW (Company File), QBA (Accountant's Copy), QBB (Backup File), and QBO (Online File). We also specialize in converting QuickBooks Accountant files to Enterprise versions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does the conversion process take? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most standard conversions are completed within 24-48 hours. Complex conversions or those involving very large files may take slightly longer. We'll provide a time estimate once we've reviewed your file.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my financial data secure? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We take data security very seriously. All files are transferred through secure encrypted channels, and we delete all client files from our systems after conversion is complete and delivered.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if my file is corrupted or doesn't convert properly? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We have extensive experience working with damaged or corrupted QuickBooks files. If we cannot convert your file successfully, you don't pay. We'll diagnose the issue and let you know the options before proceeding.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I send you my files and receive the converted version? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After you contact us, we'll provide a secure upload link for your files. Once converted, we'll send you a download link for the converted files. We can also use other secure transfer methods if preferred.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for a quick quote or to start your conversion</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about converting your QuickBooks files? Reach out to us through any of these channels:</p>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>support@qbconversionpro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Schedule a Call</h4>
+                            <p>Book a convenient time to discuss your needs</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div>
+                            <h4>Pricing</h4>
+                            <p>$50 per file conversion - volume discounts available</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>We typically respond to all inquiries within 2 hours during business hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request a Conversion</h3>
+                    <form id="conversionForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (optional)</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="sourceFormat">Source File Format</label>
+                            <select id="sourceFormat" required>
+                                <option value="">Select format</option>
+                                <option value="QBW">QBW - QuickBooks Company File</option>
+                                <option value="QBA">QBA - QuickBooks Accountant File</option>
+                                <option value="QBB">QBB - QuickBooks Backup File</option>
+                                <option value="QBO">QBO - QuickBooks Online File</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="targetFormat">Target File Format</label>
+                            <select id="targetFormat" required>
+                                <option value="">Select format</option>
+                                <option value="QBW">QBW - QuickBooks Company File</option>
+                                <option value="QBA">QBA - QuickBooks Accountant File</option>
+                                <option value="QBB">QBB - QuickBooks Backup File</option>
+                                <option value="QBO">QBO - QuickBooks Online File</option>
+                                <option value="Enterprise">QuickBooks Enterprise</option>
+                                <option value="Other">Other (please specify in message)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-exchange-alt"></i>
+                    QB Conversion Pro
+                </div>
+                <p>Professional QuickBooks File Conversion Services</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-upwork"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <p>© 2023 QB Conversion Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('faq-active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('conversionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your conversion request! We will contact you shortly with further instructions.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
